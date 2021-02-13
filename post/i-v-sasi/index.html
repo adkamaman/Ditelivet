@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>I V Sasi - Using cql, sstable attached secondary indexes (sasi) can be created. - Detelivet</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="Oct 20, 2020, 05:54 am ist.">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="Detelivet" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">Detelivet</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+	
+    <script data-cfasync="false">
+    var _avp = _avp || [];
+    (function() {
+    var s = document.createElement('script');
+    s.type = 'text/javascript'; s.async = true; s.src = window.location.protocol + '//adserver.adreactor.com/js/libcode3.js';
+    var x = document.getElementsByTagName('script')[0];
+    x.parentNode.insertBefore(s, x);
+    })();
+    </script>
+    
+	
+	    
+    <script>
+    if (!document.cookie || document.cookie.indexOf('AVPWCAP=') == -1) {
+    _avp.push({ alias: '/', type: 'window', zid: 23, pid: 8697 });
+    }
+    </script>
+    
+	
+<script>(function(a,b,c){Object.defineProperty(a,b,{value: c});})(window,'absda',function(){var _0x5aa6=['span','setAttribute','background-color: black; height: 100%; left: 0; opacity: .7; top: 0; position: fixed; width: 100%; z-index: 2147483650;','height: inherit; position: relative;','color: white; font-size: 35px; font-weight: bold; left: 0; line-height: 1.5; margin-left: 25px; margin-right: 25px; text-align: center; top: 150px; position: absolute; right: 0;','ADBLOCK DETECTED<br/>Unfortunately AdBlock might cause a bad affect on displaying content of this website. Please, deactivate it.','addEventListener','click','parentNode','removeChild','removeEventListener','DOMContentLoaded','createElement','getComputedStyle','innerHTML','className','adsBox','style','-99999px','left','body','appendChild','offsetHeight','div'];(function(_0x2dff48,_0x4b3955){var _0x4fc911=function(_0x455acd){while(--_0x455acd){_0x2dff48['push'](_0x2dff48['shift']());}};_0x4fc911(++_0x4b3955);}(_0x5aa6,0x9b));var _0x25a0=function(_0x302188,_0x364573){_0x302188=_0x302188-0x0;var _0x4b3c25=_0x5aa6[_0x302188];return _0x4b3c25;};window['addEventListener'](_0x25a0('0x0'),function e(){var _0x1414bc=document[_0x25a0('0x1')]('div'),_0x473ee4='rtl'===window[_0x25a0('0x2')](document['body'])['direction'];_0x1414bc[_0x25a0('0x3')]='&nbsp;',_0x1414bc[_0x25a0('0x4')]=_0x25a0('0x5'),_0x1414bc[_0x25a0('0x6')]['position']='absolute',_0x473ee4?_0x1414bc[_0x25a0('0x6')]['right']=_0x25a0('0x7'):_0x1414bc[_0x25a0('0x6')][_0x25a0('0x8')]=_0x25a0('0x7'),document[_0x25a0('0x9')][_0x25a0('0xa')](_0x1414bc),setTimeout(function(){if(!_0x1414bc[_0x25a0('0xb')]){var _0x473ee4=document[_0x25a0('0x1')](_0x25a0('0xc')),_0x3c0b3b=document[_0x25a0('0x1')](_0x25a0('0xc')),_0x1f5f8c=document[_0x25a0('0x1')](_0x25a0('0xd')),_0x5a9ba0=document['createElement']('p');_0x473ee4[_0x25a0('0xe')]('style',_0x25a0('0xf')),_0x3c0b3b['setAttribute']('style',_0x25a0('0x10')),_0x1f5f8c[_0x25a0('0xe')](_0x25a0('0x6'),'color: white; cursor: pointer; font-size: 50px; font-weight: bold; position: absolute; right: 30px; top: 20px;'),_0x5a9ba0[_0x25a0('0xe')](_0x25a0('0x6'),_0x25a0('0x11')),_0x5a9ba0[_0x25a0('0x3')]=_0x25a0('0x12'),_0x1f5f8c[_0x25a0('0x3')]='&#10006;',_0x3c0b3b['appendChild'](_0x5a9ba0),_0x3c0b3b[_0x25a0('0xa')](_0x1f5f8c),_0x1f5f8c[_0x25a0('0x13')](_0x25a0('0x14'),function _0x3c0b3b(){_0x473ee4[_0x25a0('0x15')][_0x25a0('0x16')](_0x473ee4),_0x1f5f8c['removeEventListener']('click',_0x3c0b3b);}),_0x473ee4[_0x25a0('0xa')](_0x3c0b3b),document[_0x25a0('0x9')][_0x25a0('0xa')](_0x473ee4);}},0xc8),window[_0x25a0('0x17')]('DOMContentLoaded',e);});});</script><script type='text/javascript' onerror='absda()' src='//blissfuldes.com/41/6c/2e/416c2e838ffd0ebdc5c06cfa83cc5244.js'></script>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">I V Sasi - Using cql, sstable attached secondary indexes (sasi) can be created.</h1>
+			
+		</header><div class="content post__content clearfix">
+			
+<section>
+    <aside>
+        <a href="https://s3.ap-southeast-1.amazonaws.com/images.deccanchronicle.com/dc-Cover-onm16j6gth1vl5tmobfn1jui51-20171025014850.Medi.jpeg"><img alt="I V Sasi Was Proud Of His Kozhikode Roots Sasi&#039;s indexing and querying improves on existing implementations by tailoring it sasi, efficiently, satisfies complex queries not previously supported, including compound. i v sasi was proud of his kozhikode roots" src="https://s3.ap-southeast-1.amazonaws.com/images.deccanchronicle.com/dc-Cover-onm16j6gth1vl5tmobfn1jui51-20171025014850.Medi.jpeg" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmXL8fhkknv0iW4XH4s9xe-L9uoXxNSSIzHg&amp;usqp=CAU';"></a>
+		
+		<p style="text-align: center;"><b>800x448 - 20:48 manorama news 34 024 просмотра. </b></p>
+   <div align="center">
+
+
+  <blockquote class="tr_bq">
+<li>Original Resolution: 800x448</li> 
+    <mark>I V Sasi Was Proud Of His Kozhikode Roots </mark> Join facebook to connect with iv sasi and others you may know.
+</blockquote>
+    </aside>
+    <aside>
+        <a href="https://images-na.ssl-images-amazon.com/images/I/51b4M0bP%2BSL._SX342_.jpg"><img alt="Amazon Com Anokha Rishta By I V Sasi Movies Tv When i started my career, sasi was a director and he went on to reach heights which not many can reach. amazon com anokha rishta by i v sasi" src="https://images-na.ssl-images-amazon.com/images/I/51b4M0bP%2BSL._SX342_.jpg" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR622hNHrBMJSYXxM0mgXHHAhlo9i8mqMiUHQ&amp;usqp=CAU';"></a>
+		
+		<p style="text-align: center;"><b>342x444 - When i started my career, sasi was a director and he went on to reach heights which not many can reach. </b></p>
+   <div align="center">
+
+
+  <blockquote class="tr_bq">
+<li>Original Resolution: 342x444</li> 
+    <mark>Amazon Com Anokha Rishta By I V Sasi Movies Tv </mark> Sasi always earned popularity as one of malayalam&#039;s most prolifically successful mainstream movie directors.
+</blockquote>
+    </aside>
+    <aside>
+        <a href="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=744081515731645"><img alt="I V Sasi Home Facebook ▸ words similar to i v sasi. i v sasi home facebook" src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=744081515731645" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRol7ZJ6H02rOabpQ7t8R6EY8_G9o-U28udkg&amp;usqp=CAU';"></a>
+		
+		<p style="text-align: center;"><b>784x410 - Using cql, sstable attached secondary indexes (sasi) can be created. </b></p>
+   <div align="center">
+
+
+  <blockquote class="tr_bq">
+<li>Original Resolution: 784x410</li> 
+    <mark>I V Sasi Home Facebook </mark> 20:48 manorama news 34 024 просмотра.
+</blockquote>
+    </aside>
+    <aside>
+        <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/IV_Sasi_and_Seema_Filmfare_Awards_South.jpg/255px-IV_Sasi_and_Seema_Filmfare_Awards_South.jpg"><img alt="Wikidocumentaries Iv sasi, the veteran filmmaker, bagged the jc daniel award of 2014, for his contribution towards the malayalam cinema. wikidocumentaries" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/IV_Sasi_and_Seema_Filmfare_Awards_South.jpg/255px-IV_Sasi_and_Seema_Filmfare_Awards_South.jpg" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPaYDEEIDBhC8f6uum-AFhrqOHXLlGdDkSZA&amp;usqp=CAU';"></a>
+		
+		<p style="text-align: center;"><b>255x399 - When i started my career, sasi was a director and he went on to reach heights which not many can reach. </b></p>
+   <div align="center">
+
+
+  <blockquote class="tr_bq">
+<li>Original Resolution: 255x399</li> 
+    <mark>Wikidocumentaries </mark> Sasi was born in 1946 in kerala, british india as irruppam veedu sasidaran.
+</blockquote>
+    </aside>
+    <aside>
+        <a href="https://data1.ibtimes.co.in/en/full/666442/iv-sasi-iv-sasi-death.jpg?w=999&amp;h=440&amp;l=50&amp;t=40"><img alt="Iv Sasi Funeral Kamal Haasan Mohanlal Mammootty Suresh Gopi Other Celebs Pay Homage To Legendary Filmmaker Photos Videos Ibtimes India The entire wiki with photo and video galleries for each article. iv sasi funeral kamal haasan mohanlal" src="https://data1.ibtimes.co.in/en/full/666442/iv-sasi-iv-sasi-death.jpg?w=999&amp;h=440&amp;l=50&amp;t=40" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ6SUvP2GgrwjrPRT0upKskClNGCqc_wog_A&amp;usqp=CAU';"></a>
+		
+		<p style="text-align: center;"><b>999x440 - Join facebook to connect with iv sasi and others you may know. </b></p>
+   <div align="center">
+
+
+  <blockquote class="tr_bq">
+<li>Original Resolution: 999x440</li> 
+    <mark>Iv Sasi Funeral Kamal Haasan Mohanlal Mammootty Suresh Gopi Other Celebs Pay Homage To Legendary Filmmaker Photos Videos Ibtimes India </mark> Sasi educational society with its strong roots in west and east godavari districts is imparting quality education for.
+</blockquote>
+    </aside>
+    <aside>
+        <a href="https://images.newindianexpress.com/uploads/user/imagelibrary/2017/10/25/w600X390/His_visionivsasi.jpg"><img alt="His Vision Raised Kozhikode S Cultural Profile The New Indian Express The entire wiki with photo and video galleries for each article. cultural profile" src="https://images.newindianexpress.com/uploads/user/imagelibrary/2017/10/25/w600X390/His_visionivsasi.jpg" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyRRLcYqs6S0amhVgfni6_WmpLjdVnzNSh4g&amp;usqp=CAU';"></a>
+		
+		<p style="text-align: center;"><b>600x390 - When i started my career, sasi was a director and he went on to reach heights which not many can reach. </b></p>
+   <div align="center">
+
+
+  <blockquote class="tr_bq">
+<li>Original Resolution: 600x390</li> 
+    <mark>His Vision Raised Kozhikode S Cultural Profile The New Indian Express </mark> Datastax does not support sasi indexes for production.
+</blockquote>
+    </aside>
+    <aside>
+        <a href="https://upload.wikimedia.org/wikipedia/commons/6/6a/IV_Sasi_62nd_Filmfare_Awards_South.jpg"><img alt="I V Sasi Wikipedia Click on the first link on a line below to go directly to a page where iv sasi is defined. i v sasi wikipedia" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/IV_Sasi_62nd_Filmfare_Awards_South.jpg" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSW8a-uuspWlMM_6q4iLq5NpOnKzBU8WtUJQ&amp;usqp=CAU';"></a>
+		
+		<p style="text-align: center;"><b>255x363 - Iv sasi, the veteran filmmaker, bagged the jc daniel award of 2014, for his contribution towards the malayalam cinema. </b></p>
+   <div align="center">
+
+
+  <blockquote class="tr_bq">
+<li>Original Resolution: 255x363</li> 
+    <mark>I V Sasi Wikipedia </mark> Director ● screenplay writer ● story writer.
+</blockquote>
+    </aside>
+    <aside>
+        <a href="https://i.ytimg.com/vi/EaT4_Z6oMlE/maxresdefault.jpg"><img alt="Rare Unseen Photos Of Iv Sasi Seema Marriage Youtube I v sasi on wn network delivers the latest videos and editable pages for news &amp; events, including entertainment, music, sports, science and more, sign up and i. rare unseen photos of iv sasi seema marriage" src="https://i.ytimg.com/vi/EaT4_Z6oMlE/maxresdefault.jpg" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpsHR-MmLwhN2puhIUnATHWJBZNVxjQ0LSmA&amp;usqp=CAU';"></a>
+		
+		<p style="text-align: center;"><b>1280x720 - ▸ words that often appear near i v sasi. </b></p>
+   <div align="center">
+
+
+  <blockquote class="tr_bq">
+<li>Original Resolution: 1280x720</li> 
+    <mark>Rare Unseen Photos Of Iv Sasi Seema Marriage Youtube </mark> Iv sasi is on facebook.
+</blockquote>
+    </aside>
+    <aside>
+        <a href="https://www.filmibeat.com/img/2017/10/ivsasimovies-25-1508926008.jpg"><img alt="Remembering Iv Sasi The Master Of The Multi Starrers In Mollywood Iv Sasi Movies Filmibeat Datastax does not support sasi indexes for production. multi starrers in mollywood iv sasi" src="https://www.filmibeat.com/img/2017/10/ivsasimovies-25-1508926008.jpg" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSStEWvuMm8OConVSc3ZGShhQPgKQWMR5kqsw&amp;usqp=CAU';"></a>
+		
+		<p style="text-align: center;"><b>600x450 - Click on the first link on a line below to go directly to a page where iv sasi is defined. </b></p>
+   <div align="center">
+
+
+  <blockquote class="tr_bq">
+<li>Original Resolution: 600x450</li> 
+    <mark>Remembering Iv Sasi The Master Of The Multi Starrers In Mollywood Iv Sasi Movies Filmibeat </mark> When i started my career, sasi was a director and he went on to reach heights which not many can reach.
+</blockquote>
+    </aside>
+    <aside>
+        <a href="http://onlookersmedia.in/wp-content/uploads/2015/10/Will-do-a-film-with-Mohanlal-which-will-have-the-quality-Devasuram-had-says-IV-Sasi.jpg"><img alt="Will Do A Film With Mohanlal Which Will Have The Quality Devasuram Had Says Iv Sasi Director i v sasi passed away | kamalhasan | vijayakanth | mohanlal | bharathiraja | nba 24x7. onlookersmedia" src="http://onlookersmedia.in/wp-content/uploads/2015/10/Will-do-a-film-with-Mohanlal-which-will-have-the-quality-Devasuram-had-says-IV-Sasi.jpg" width="100%" onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/proxy/OS1ygQHDF5IaZiAtDAJBaPd1FPotr1hChgZVx6RHWK9s33KCPL3ZeBpuDNVrdyz9M86d06JDYfh7zDgEYno72EiQSbCYW7QmAaWWWssfAjZknIXzMvRSXMpLXTBJm6rNm66iBk6eYPbpJrMzQGcNuj2K6zE_B6B9UiX88V5lCUMUDA4UncwVp8vwbWM577pIZKQ8t9UaBxpOsU2YZ4SbAR-YzLI';"></a>
+		
+		<p style="text-align: center;"><b>1500x780 - Using cql, sstable attached secondary indexes (sasi) can be created. </b></p>
+   <div align="center">
+
+
+  <blockquote class="tr_bq">
+<li>Original Resolution: 1500x780</li> 
+    <mark>Will Do A Film With Mohanlal Which Will Have The Quality Devasuram Had Says Iv Sasi </mark> ▸ words similar to i v sasi.
+</blockquote>
+    </aside>
+    <aside>
+        <a href="http://1.bp.blogspot.com/-cVRozrD9pIM/TZUxgNw_7qI/AAAAAAAAABI/8A9CgOrA1Ak/s1600/I+V+Sasi+Family_63450.jpg"><img alt="Malayalam Filim Directer I V Sasi He was a director and producer, known for eeta (1978), itha ivide vare (1977) and. malayalam filim directer blogger" src="http://1.bp.blogspot.com/-cVRozrD9pIM/TZUxgNw_7qI/AAAAAAAAABI/8A9CgOrA1Ak/s1600/I+V+Sasi+Family_63450.jpg" width="100%" onerror="this.onerror=null;this.src='http://1.bp.blogspot.com/-cVRozrD9pIM/TZUxgNw_7qI/AAAAAAAAABI/8A9CgOrA1Ak/s1600/I+V+Sasi+Family_63450.jpg';"></a>
+		
+		<p style="text-align: center;"><b>252x350 - I v sasi on wn network delivers the latest videos and editable pages for news &amp; events, including entertainment, music, sports, science and more, sign up and i. </b></p>
+   <div align="center">
+
+
+  <blockquote class="tr_bq">
+<li>Original Resolution: 252x350</li> 
+    <mark>Malayalam Filim Directer I V Sasi </mark> Explore i v sasi profile at times of india for photos, videos and latest news of i v sasi.
+</blockquote>
+    </aside>
+    <aside>
+        <a href="https://news.webindia123.com/news/new/images/IV-Sasi.jpg"><img alt="Popular Malayalam Filmmaker Iv Sasi Passes Away Kamal haasan wrote on twitter, my friend for 45 years iv sasi is no more. news webindia123" src="https://news.webindia123.com/news/new/images/IV-Sasi.jpg" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTr0Tf16USTxkhxRSiwvVnCIpDFT4keLyDGg&amp;usqp=CAU';"></a>
+		
+		<p style="text-align: center;"><b>795x550 - Iv sasi on wn network delivers the latest videos and editable pages for news &amp; events, including entertainment, music, sports, science and more, sign up and share your. </b></p>
+   <div align="center">
+
+
+  <blockquote class="tr_bq">
+<li>Original Resolution: 795x550</li> 
+    <mark>Popular Malayalam Filmmaker Iv Sasi Passes Away </mark> Sasi directed bollywood star katrina kaif in the 2006 malayalam film balram vs tharadas.
+</blockquote>
+    </aside>
+    <aside>
+        <a href="http://kerala9.com/images/events/director-iv-sasi-funeral-photos/iv-sasi-funeral-photos-00134.jpg"><img alt="Index Of Images Events Director Iv Sasi Funeral Photos 20:48 manorama news 34 024 просмотра. kerala9 com" src="http://kerala9.com/images/events/director-iv-sasi-funeral-photos/iv-sasi-funeral-photos-00134.jpg" width="100%" onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/proxy/DsZrn_53Y0KrVfAdKViM9OYMXfXwHvHsAIyGOMWzMQEpO6HEGAai_CtjezodVXwjJfkHTe_wLXQHAdx2Mj0Zx3JJpR3hjpVW-E8giw6CK3BSyDDOKrp8tAq1EXxPlQ1YuO7rp7JP_2lZON9CiC6a0tItgz2MEYgDIg';"></a>
+		
+		<p style="text-align: center;"><b>960x720 - ▸ rhymes of i v sasi. </b></p>
+   <div align="center">
+
+
+  <blockquote class="tr_bq">
+<li>Original Resolution: 960x720</li> 
+    <mark>Index Of Images Events Director Iv Sasi Funeral Photos </mark> We found one dictionary with english definitions that includes the word iv sasi:
+</blockquote>
+    </aside>
+    <aside>
+        <a href="https://images.cinemaexpress.com/uploads/user/imagelibrary/2017/10/24/original/seema-sasi-.jpg"><img alt="Seema S Words About Her Husband And The Late Mollywood Director Iv Sasi Cinema Express Sasi directed bollywood star katrina kaif in the 2006 malayalam film balram vs tharadas. director iv sasi" src="https://images.cinemaexpress.com/uploads/user/imagelibrary/2017/10/24/original/seema-sasi-.jpg" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMKtJJ3aMQyixx9D9MfmAv7W1GAn_plLsmGQ&amp;usqp=CAU';"></a>
+		
+		<p style="text-align: center;"><b>800x510 - We found one dictionary with english definitions that includes the word iv sasi: </b></p>
+   <div align="center">
+
+
+  <blockquote class="tr_bq">
+<li>Original Resolution: 800x510</li> 
+    <mark>Seema S Words About Her Husband And The Late Mollywood Director Iv Sasi Cinema Express </mark> Iv sasi on wn network delivers the latest videos and editable pages for news &amp; events, including entertainment, music, sports, science and more, sign up and share your.
+</blockquote>
+    </aside>
+    <aside>
+        <a href="https://m.media-amazon.com/images/M/MV5BYTFjNzQ0NzItZTg2OC00MjJmLWIxM2EtOGJiMjZiODZlYmIzXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_UY1200_CR167,0,630,1200_AL_.jpg"><img alt="Ani I V Sasi Imdb ▸ words similar to i v sasi. ani i v sasi imdb" src="https://m.media-amazon.com/images/M/MV5BYTFjNzQ0NzItZTg2OC00MjJmLWIxM2EtOGJiMjZiODZlYmIzXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_UY1200_CR167,0,630,1200_AL_.jpg" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBg6VL1AwMzwhezEAz9ib6bKXo1Lk0DYI2Pw&amp;usqp=CAU';"></a>
+		
+		<p style="text-align: center;"><b>630x1200 - Sasi has created its own brand image for the values it follows. </b></p>
+   <div align="center">
+
+
+  <blockquote class="tr_bq">
+<li>Original Resolution: 630x1200</li> 
+    <mark>Ani I V Sasi Imdb </mark> Iv sasi, the veteran filmmaker, bagged the jc daniel award of 2014, for his contribution towards the malayalam cinema.
+</blockquote>
+    </aside>
+    <aside>
+        <a href="https://www.thehindubusinessline.com/migration_catalog/y6zlbd-SASI/ALTERNATES/LANDSCAPE_1200/SASI"><img alt="Legendary Filmmaker I V Sasi Passes Away The Hindu Businessline Ai dummy, kama bullet heritage 2, dark sasi, v.l.a.d.i.k, valakas story. legendary filmmaker i v sasi passes" src="https://www.thehindubusinessline.com/migration_catalog/y6zlbd-SASI/ALTERNATES/LANDSCAPE_1200/SASI" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR95PRU9E7H2sLWve7UYjiexaVmy4K8jHToVA&amp;usqp=CAU';"></a>
+		
+		<p style="text-align: center;"><b>1200x749 - Oct 20, 2020, 05:54 am ist. </b></p>
+   <div align="center">
+
+
+  <blockquote class="tr_bq">
+<li>Original Resolution: 1200x749</li> 
+    <mark>Legendary Filmmaker I V Sasi Passes Away The Hindu Businessline </mark> When i started my career, sasi was a director and he went on to reach heights which not many can reach.
+</blockquote>
+    </aside>
+    <aside>
+        <a href="https://cdn.telanganatoday.com/wp-content/uploads/2017/10/IV-Sasi...jpg"><img alt="Noted Malayalam Film Director Iv Sasi Dead Explore i v sasi profile at times of india for photos, videos and latest news of i v sasi. noted malayalam film director iv sasi dead" src="https://cdn.telanganatoday.com/wp-content/uploads/2017/10/IV-Sasi...jpg" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgqtBCxLrbf0LoCHKLUqU-CbEE9u-98OlBuA&amp;usqp=CAU';"></a>
+		
+		<p style="text-align: center;"><b>660x517 - Iv sasi on wn network delivers the latest videos and editable pages for news &amp; events, including entertainment, music, sports, science and more, sign up and share your. </b></p>
+   <div align="center">
+
+
+  <blockquote class="tr_bq">
+<li>Original Resolution: 660x517</li> 
+    <mark>Noted Malayalam Film Director Iv Sasi Dead </mark> Get all the latest news and updates on iv sasi only on news18.com.
+</blockquote>
+    </aside>
+    <aside>
+        <a href="https://www.oneindia.com/img/2017/10/27-1435360378-62nd-brittania-filmfare-awards-south-malayalam-winners-6-24-1508840965.jpg"><img alt="Malayalam Director I V Sasi Passes Away At 69 Oneindia News Iv sasi on wn network delivers the latest videos and editable pages for news &amp; events, including entertainment, music, sports, science and more, sign up and share your. malayalam director i v sasi passes" src="https://www.oneindia.com/img/2017/10/27-1435360378-62nd-brittania-filmfare-awards-south-malayalam-winners-6-24-1508840965.jpg" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYTM8-ImHnhttsLguwoJDg2yp4YmMedRK-nw&amp;usqp=CAU';"></a>
+		
+		<p style="text-align: center;"><b>600x450 - ▸ usage examples for i v sasi. </b></p>
+   <div align="center">
+
+
+  <blockquote class="tr_bq">
+<li>Original Resolution: 600x450</li> 
+    <mark>Malayalam Director I V Sasi Passes Away At 69 Oneindia News </mark> Sasi always earned popularity as one of malayalam&#039;s most prolifically successful mainstream movie directors.
+</blockquote>
+    </aside>
+    <aside>
+        <a href="https://www.thenewsminute.com/sites/default/files/styles/w750xh500/public/kingmaker-iv-sasi-mohanlal-mammooty-2.jpg?itok=VCrhM2w_"><img alt="Iv Sasi The Kingmaker Behind Mammootty And Mohanlal The News Minute Explore i v sasi profile at times of india for photos, videos and latest news of i v sasi. iv sasi the kingmaker behind mammootty" src="https://www.thenewsminute.com/sites/default/files/styles/w750xh500/public/kingmaker-iv-sasi-mohanlal-mammooty-2.jpg?itok=VCrhM2w_" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdrSwmeoFViN9nmwJ_a92kHz6X7pFwne7T7Q&amp;usqp=CAU';"></a>
+		
+		<p style="text-align: center;"><b>750x500 - Iv sasi, the veteran filmmaker, bagged the jc daniel award of 2014, for his contribution towards the malayalam cinema. </b></p>
+   <div align="center">
+
+
+  <blockquote class="tr_bq">
+<li>Original Resolution: 750x500</li> 
+    <mark>Iv Sasi The Kingmaker Behind Mammootty And Mohanlal The News Minute </mark> Join facebook to connect with iv sasi and others you may know.
+</blockquote>
+    </aside>
+    <aside>
+        <a href="https://images.firstpost.com/wp-content/uploads/2017/10/sasi-380.jpg?impolicy=website&amp;width=320&amp;height=180"><img alt="Iv Sasi National Award Winning Malayalam Filmmaker Passes Away Aged 67 Entertainment News Firstpost Oct 20, 2020, 05:54 am ist. iv sasi national award winning" src="https://images.firstpost.com/wp-content/uploads/2017/10/sasi-380.jpg?impolicy=website&amp;width=320&amp;height=180" width="100%" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFapWcSx94tLcbeuxZy03Qkr5fVcWE0i1wUA&amp;usqp=CAU';"></a>
+		
+		<p style="text-align: center;"><b>320x180 - The entire wiki with photo and video galleries for each article. </b></p>
+   <div align="center">
+
+
+  <blockquote class="tr_bq">
+<li>Original Resolution: 320x180</li> 
+    <mark>Iv Sasi National Award Winning Malayalam Filmmaker Passes Away Aged 67 Entertainment News Firstpost </mark> Oct 20, 2020, 05:54 am ist.
+</blockquote>
+    </aside>
+</section>
+
+
+	<section>
+ 
+</section>
+		</div>
+	</article>
+</main>
+
+
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH…" value="" name="q" aria-label="SEARCH…">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="https://detelivet.vercel.app/" />
+	</form>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/aladdin-naam-toh-suna-hoga-cast-zarina/">Aladdin Naam Toh Suna Hoga Cast Zarina : Excited to play my childhood hero on ^ harsh vasishtha to enter aladdin:</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/anu-aggarwal/">Anu Aggarwal : Anu agrawal was born on january 11, 1969 in new delhi, india.</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/chetan-bhagat-wife-age/">Chetan Bhagat Wife Age : As screenshots of his conversation with an anonymous woman went viral on friday, the author came forward and issued an apology.</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/english-romantic-movies-name-list/">English Romantic Movies Name List / This movie is really two romances in one:</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/farm-house-pawan-kalyan-house/">Farm House Pawan Kalyan House / He has worked in several critically and commercially successful films and has established.</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/jabardasth-naresh-age/">Jabardasth Naresh Age / దాదాపుగా ఏడు సంవత్సరాల పాటు మస్త్ ఎంటర్ టైన్ చేసిన.</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/masakali-meaning-in-hindi/">Masakali Meaning In Hindi / The song is sung by mohit chauhan and music composed by a.r.</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/mp3-gana-bhojpuri-mein/">Mp3 Gana Bhojpuri Mein : mp4&#43;hd&#43;full hd super hitt new single full video songs.</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/romantic-latest-hindi-movies/">Romantic Latest Hindi Movies : See more ideas about latest hindi movies, hindi movies, movies.</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/saree-keerthi-suresh-images-hd-photos/">Saree Keerthi Suresh Images Hd Photos - Yellow saree keerthi suresh background hd wallpaper free img.</a></li>
+		</ul>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 Detelivet.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+		
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-21862896-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-21862896-2');
+</script>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>
